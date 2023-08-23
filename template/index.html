@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio App</title>
+    <style>
+        /* Your CSS content here */
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: blue;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.logo, .heading {
+    color: white;
+}
+
+.body {
+    background-color: yellow;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.settings, .search, .scan {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.content {
+    background-color: blue;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.station-presets, .station-info, .search-scan {
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.footer {
+    background-color: yellow;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copy {
+    flex-grow: 1;
+}
+
+.contact, .location, .tel {
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Logo</div>
+        <div class="heading">Radio Uganda</div>
+    </div>
+    <div class="body">
+        <form method="post">
+            <button class="settings">Settings</button>
+        </form>
+        <form method="post">
+            <input type="text" name="searchInput" placeholder="Enter station">
+            <button class="search" name="search">Search</button>
+        </form>
+        <form method="post">
+            <button class="scan" name="scan">Scan</button>
+        </form>
+    </div>
+    <div class="content">
+        <div class="station-presets">
+            <h2>Station Presets</h2>
+            <ul>
+                {% if search_results %}
+                    {% for result in search_results %}
+                        <li>{{ result }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="station-info">
+            <h2>Station Information</h2>
+            <ul>
+                {% if scan_results %}
+                    {% for result in scan_results %}
+                        <li>{{ result }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="search-scan">
+            <button class="search-btn">Search</button>
+            <button class="scan-btn">Scan</button>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="copy">All rights reserved Joshua Turyamureeba</div>
+        <div class="contact">Contact</div>
+        <div class="location">Location</div>
+        <div class="tel">Tel: 0753181844</div>
+    </div>
+</body>
+</html>
